@@ -1,0 +1,20 @@
+specVersion: 0.0.1
+description: The project for getting the on chain data of Kusama
+repository: "https://github.com/parallel-finance/auction-refund"
+schema: ./schema.graphql
+network:
+  endpoint: wss://wss.polkatrain.moonbeam.network
+  # endpoint: wss://rpc.polkadot.io
+  # dictionary: "https://api.subquery.network/sq/subquery/dictionary-polkadot"
+dataSources:
+  - name: app
+    kind: substrate/Runtime
+    # startBlock: 7559000
+    startBlock: 107200
+    mapping:
+      handlers:
+        - handler: handleCrowdloanContribute
+          kind: substrate/EventHandler
+          filter:
+            module: crowdloan
+            method: Contributed

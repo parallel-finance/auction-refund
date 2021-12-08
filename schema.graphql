@@ -1,0 +1,7 @@
+type RefundAction @entity {
+  id: ID!
+  signature: String!
+  account: String!
+  kind: String!
+  blockHeight: Int!
+}
